@@ -6,6 +6,8 @@ CS293 Course Project - Data Structures and Algorithms Lab
 - Implemented the naive brute force algorithm and the Barnes-Hut Algorithm for solving the N-body Problem.
 - Made the Quad Tree data structure to store nodes and stars for the Barnes-Hut algorithm
 
+video demo- https://drive.google.com/file/d/16qfS672WIHog9WMGKqMOG1XDgITqMJP4/view?usp=sharing
+
 To Run:
 
 Install SFML graphics library on LINUX and open the terminal inside main folder and type command: 
