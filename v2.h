@@ -2,7 +2,7 @@
 #define V2
 #include<cmath>
 
-
+//IMPORTANT:: reference from stack overflow used for v2 
 class v2{
     public:
     double x,y;
