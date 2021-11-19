@@ -3,7 +3,7 @@
 #include "box.h"
 #define WINDOW_SIZE 1024
 #define G 5000.0
-#define THETA 1000.0
+#define THETA 100.0
 
 class node{
     public:
@@ -73,8 +73,9 @@ void insert(node* parent,star* STAR){
         double old_size= parent->square->size;
 
         //calculation of oldquadrant to call recursion
-        //int oldquadrant=quadrant(parent, oldSTAR);
-        int oldquadrant=1;
+        int oldquadrant;
+        oldquadrant=quadrant(parent, oldSTAR);
+        //oldquadrant=rand()%4;
         int newquadrant=quadrant(parent, STAR);
 
         //copying old data to child and destroying old node
@@ -125,6 +126,19 @@ v2 force(star* STAR, node* root){
             for(int itr=0;itr<4;itr++){
                 F+=force(STAR, root->child[itr]);
             }
+        }
+    }
+    return F;
+}
+
+v2 naive_force(star* STAR, vector<star*> arr){
+    v2 F(0,0);
+    for(int i=0; i<arr.size();i++){
+        if(arr[i]->s.distance(STAR->s)>0.0000001){
+            v2 add= STAR->s-arr[i]->s;
+            add*= G*(STAR->m)*(arr[i]->m);
+            add/= (STAR->s.distance(arr[i]->s))*(STAR->s.distance(arr[i]->s))*(STAR->s.distance(arr[i]->s));
+            F = F + add;
         }
     }
     return F;
